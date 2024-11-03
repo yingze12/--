@@ -10,7 +10,7 @@
 **The current basic idea of MultiDiffusion**
 MultiDiffusion defines a new generation process, which consists of multiple reference diffusion generation processes applied to different regions of the generated image. Each region undergoes a denoising sampling step, and then MultiDiffusion performs a global denoising sampling step, integrating the denoising directions of each region through a "least squares optimal solution." This process finds an optimal solution that minimizes the differences between regions and considers the common pixels shared between adjacent regions, achieving a seamless transition and ultimately producing a unified panoramic image. With MultiDiffusion, a pre-trained text-to-image diffusion model can be leveraged for various tasks, including synthesizing images at the desired resolution or aspect ratio, or generating images based on rough region-based text prompts, as shown in Fig. 1.
 
-![](./imgs/MultiDiffusion_Fig1.png)
+![](../imgs/MultiDiffusion/MultiDiffusion_Fig1.png)
 Figure 1.MultiDiffusion enables ﬂexible text-to-image generation, unifying multiple controls over the generated content, including desired aspect ratio, or simple spatial guiding signals such as rough region-based text-prompts.
 
 ## Related Work
@@ -50,7 +50,7 @@ $$I_t^i=F_i(J_t),\quad y_i=\lambda_i(z)$$
 
 - The process is given by solving the following optimization problem:
 
-$$\Psi(J_t|z)=\underset{J\in\mathcal{J}}{\arg\min} \mathcal{L}_{\mathrm{FID}}(J|J_t,z)\tag{3}$$
+$$\Psi(J_t|z)=\underset{J\in\mathcal{J}}{\arg\min} \mathcal{L}_{\mathrm{FTD}}(J|J_t,z)\tag{3}$$
 
 $\hspace*{2em}$ The minimum $J$ represents the optimal representation of the entire image at this time step $t$, $\hspace*{2em}$ ensuring that all regions are coordinated during the denoising process, thereby producing a $\hspace*{2em}$  seamlessly integrated final image.
 
@@ -60,14 +60,14 @@ $\hspace*{2em} W_{i} \in \mathbb{R}_{+}^{H\times W}: \text{per pixel weights}$
 $\hspace*{2em} \otimes : \text{Hadamard product}$
 $\hspace*{2em}$ Intuitively, the FTD loss reconciles, in the least-squares sense, the different denoising sampling $\hspace*{2em}$ steps, $\Phi(I_{t}^{i}|y_{i})$, suggested on different regions,$F_{i}(J_{t})$, of the generated image $J_{t}$.
 
-![](./imgs/MultiDiffusion_Fig2.png)
+![](../imgs/MultiDiffusion/MultiDiffusion_Fig2.png)
 Figure 2.MultiDiffusion: a new generation process, $\psi$, is defined over a pre-trained reference model $\Phi$. Starting from a noise image $J_T$, at each generation step, we solve an optimization task whose objective is that each crop $F_i(J_t)$ will follow as closely as possible its denoised version $\Phi(F_i(J_t))$. Note that while each denoising step $\Phi(F_i(J_t))$ may pull to a different direction, our process fuses these inconsistent directions into a global denoising step $\Phi(J_t)$, resulting in a high-quality seamless image.
 
 <center>
 
-![](./imgs/MultiDiffusion_Fig3(a).png)
+![](../imgs/MultiDiffusion/MultiDiffusion_Fig3(a).png)
 Figure 3(a). Generation with per-crop independent diffusion paths. As expected, there is no coherency between the crops.
-![](./imgs/MultiDiffusion_Fig3(b).png)
+![](../imgs/MultiDiffusion/MultiDiffusion_Fig3(b).png)
 Figure 3(b). Generation with fused diffusion paths using MultiDiffusion.
 
 </center>

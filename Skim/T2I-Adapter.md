@@ -5,7 +5,7 @@
 
 <center>
 
-![](./imgs/T2I-Adapter_Fig1.png)
+![](../imgs/T2I-Adapter/T2I-Adapter_Fig1.png)
 </center>
 
 Figure 1. Thanks to the T2I-Adapter, we can generate more imaginative results that the original T2I model (e.g., Stable Diffusion) can hardly generate accurately, e.g., $\textit{"A car with flying wings"}$ and $\textit{"Iron Man with bunny ears"}$. Various guidance such as color, depth, sketch, semantic segmentation, and keypose can be used. We can further achieve local editing and composable guidance with our T2I-Adapter.
@@ -17,7 +17,7 @@ Figure 1. Thanks to the T2I-Adapter, we can generate more imaginative results th
 
 <center>
 
-![](./imgs/T2I-Adapter_Fig2.png)
+![](../imgs/T2I-Adapter/T2I-Adapter_Fig2.png)
 </center>
 
 Figure 2. The T2I-Adapters, as extra networks to inject guidance information while not affecting their original generation ability.
@@ -55,7 +55,7 @@ $$\left\{\begin{array}{l}\mathbf{Q}=\mathbf{W}_Q\phi(\mathbf{Z}_t); \mathbf{K}=\
 ### Overview of T2I-Adapter
 - An overview of our method is presented in Fig. 3, which is composed of a pre-trained SD model and several T2I adapters. The adapters are used to extract guidance features from different types of conditions. The pre-trained SD has ﬁxed parameters to generate images based on the input text feature and extra guidance feature.
 
-![](./imgs/T2I-Adapter_Fig3.png)
+![](../imgs/T2I-Adapter/T2I-Adapter_Fig3.png)
 Figure 3. The overall architecture is composed of two parts: (1) a pre-trained stable diffusion model with ﬁxed parameters; (2) several T2I-Adapters trained to align internal knowledge in T2I models and external control signals. Different adapters can be composed by directly adding with adjustable weight $\omega$. 
 
 - The detailed architecture of T2I-Adapter is shown in the lower right corner. 
@@ -65,7 +65,7 @@ Figure 3. The overall architecture is composed of two parts: (1) a pre-trained s
 
 <center>
 
-![](./imgs/T2I-Adapter_Fig4.png)
+![](../imgs/T2I-Adapter/T2I-Adapter_Fig4.png)
 </center>
 
 Figure 4. In complex scenarios, SD fails to generate accurate results conforming to the text. In contrast, our T2I-Adapter can provide structure guidance to SD and generate plausible results.
@@ -107,7 +107,7 @@ $$\mathcal{L}_{AD}=\mathbb{E}_{\mathbf{Z}_{0},t,\mathbf{F}_{c},\epsilon\sim\math
 
 <center>
 
-![](./imgs/T2I-Adapter_Fig5.png)
+![](../imgs/T2I-Adapter/T2I-Adapter_Fig5.png)
 </center>
 
 Figure 5. We evenly divide the DDIM inference sampling into 3 stages, i.e., beginning, middle and late stages. We then add guidance information to each of the three stages. We ﬁnd that adding guidance in the middle and late stages had little effect on the result. 
@@ -125,7 +125,7 @@ the cubic function as the distribution of $t$: Cubic sampling is a method that t
 
 <center>
 
-![](./imgs/T2I-Adapter_Fig6.png)
+![](../imgs/T2I-Adapter/T2I-Adapter_Fig6.png)
 </center>
 
 Figure 6. The effect of cubic sampling during training. The uniform sampling of time steps has the problem of weak guidance, especially in color controlling. The cubic sampling strategy can rectify this weakness.
