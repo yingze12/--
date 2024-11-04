@@ -65,9 +65,9 @@ Figure 2.MultiDiffusion: a new generation process, $\psi$, is defined over a pre
 
 <center>
 
-![](../imgs/MultiDiffusion/MultiDiffusion_Fig3(a).png)
-Figure 3(a). Generation with per-crop independent diffusion paths. As expected, there is no coherency between the crops.
 ![](../imgs/MultiDiffusion/MultiDiffusion_Fig3(b).png)
+Figure 3(a). Generation with per-crop independent diffusion paths. As expected, there is no coherency between the crops.
+![](../imgs/MultiDiffusion/MultiDiffusion_Fig3(a).png)
 Figure 3(b). Generation with fused diffusion paths using MultiDiffusion.
 
 </center>
